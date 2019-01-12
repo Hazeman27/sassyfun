@@ -1,0 +1,1370 @@
+[33mcommit 800c7bd39c9c10cb0c9a5b0d8ab4359467c67f00[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Hazeman <tremul27@gmail.com>
+Date:   Sat Jan 12 07:50:06 2019 +0100
+
+    Before editing masonry.js
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8a2395d[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,2 @@[m
+[32m+[m[32m*.map[m
+[32m+[m[32m*.sass-cache[m
+\ No newline at end of file[m
+[1mdiff --git a/css/.sass-cache/735e2c4703ece8f95a39ffdba7ea516aab6388f8/style.scssc b/css/.sass-cache/735e2c4703ece8f95a39ffdba7ea516aab6388f8/style.scssc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e39b1cd[m
+Binary files /dev/null and b/css/.sass-cache/735e2c4703ece8f95a39ffdba7ea516aab6388f8/style.scssc differ
+[1mdiff --git a/css/style.css b/css/style.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d00af92[m
+[1m--- /dev/null[m
+[1m+++ b/css/style.css[m
+[36m@@ -0,0 +1,344 @@[m
+[32m+[m[32m@import url("https://use.typekit.net/qyx8wyr.css");[m
+[32m+[m[32m*, *::before, *::after {[m
+[32m+[m[32m  box-sizing: border-box; }[m
+[32m+[m
+[32m+[m[32mbody {[m
+[32m+[m[32m  display: grid;[m
+[32m+[m[32m  align-items: center;[m
+[32m+[m[32m  justify-items: center;[m
+[32m+[m[32m  padding: 0;[m
+[32m+[m[32m  margin: 0;[m
+[32m+[m[32m  font-family: regulator-nova, sans-serif;[m
+[32m+[m[32m  font-weight: 300;[m
+[32m+[m[32m  font-style: normal;[m
+[32m+[m[32m  line-height: 1.5;[m
+[32m+[m[32m  letter-spacing: .065em;[m
+[32m+[m[32m  word-spacing: .2em; }[m
+[32m+[m
+[32m+[m[32msection {[m
+[32m+[m[32m  width: 1080px;[m
+[32m+[m[32m  margin-top: 100px; }[m
+[32m+[m
+[32m+[m[32ma {[m
+[32m+[m[32m  color: inherit;[m
+[32m+[m[32m  text-decoration: none; }[m
+[32m+[m
+[32m+[m[32mh1 {[m
+[32m+[m[32m  font-size: 3em; }[m
+[32m+[m
+[32m+[m[32m.headline p {[m
+[32m+[m[32m  width: 40%; }[m
+[32m+[m
+[32m+[m[32m.carousel {[m
+[32m+[m[32m  position: relative;[m
+[32m+[m[32m  padding: 0;[m
+[32m+[m[32m  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));[m
+[32m+[m[32m  background-blend-mode: multiply;[m
+[32m+[m[32m  height: 700px;[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  margin: 0;[m
+[32m+[m[32m  overflow: hidden; }[m
+[32m+[m[32m  .carousel__slides-container {[m
+[32m+[m[32m    position: relative;[m
+[32m+[m[32m    list-style: none;[m
+[32m+[m[32m    padding: 0;[m
+[32m+[m[32m    margin: 0;[m
+[32m+[m[32m    height: 100%;[m
+[32m+[m[32m    z-index: -1; }[m
+[32m+[m[32m  .carousel__slide {[m
+[32m+[m[32m    position: absolute;[m
+[32m+[m[32m    height: 100%;[m
+[32m+[m[32m    width: 100%; }[m
+[32m+[m[32m  .carousel__image {[m
+[32m+[m[32m    position: absolute;[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m    height: 100%;[m
+[32m+[m[32m    object-fit: cover;[m
+[32m+[m[32m    top: 0; }[m
+[32m+[m[32m  .carousel__button {[m
+[32m+[m[32m    all: unset;[m
+[32m+[m[32m    display: flex;[m
+[32m+[m[32m    position: absolute;[m
+[32m+[m[32m    top: 50%;[m
+[32m+[m[32m    transform: translateY(-50%);[m
+[32m+[m[32m    justify-content: center;[m
+[32m+[m[32m    align-items: center;[m
+[32m+[m[32m    width: 3.5rem;[m
+[32m+[m[32m    height: 3.5rem;[m
+[32m+[m[32m    background-color: transparent;[m
+[32m+[m[32m    border-radius: 50%;[m
+[32m+[m[32m    color: rgba(255, 255, 255, 0.75);[m
+[32m+[m[32m    font-size: 3em;[m
+[32m+[m[32m    line-height: 0;[m
+[32m+[m[32m    user-select: none;[m
+[32m+[m[32m    cursor: pointer;[m
+[32m+[m[32m    transition: background-color 160ms ease-in-out, color 160ms ease-in-out; }[m
+[32m+[m[32m    .carousel__button_left {[m
+[32m+[m[32m      left: .5rem; }[m
+[32m+[m[32m    .carousel__button_right {[m
+[32m+[m[32m      right: .5rem; }[m
+[32m+[m[32m    .carousel__button:hover {[m
+[32m+[m[32m      background-color: rgba(0, 0, 0, 0.15);[m
+[32m+[m[32m      color: rgba(255, 255, 255, 0.95); }[m
+[32m+[m[32m  .carousel__indicators {[m
+[32m+[m[32m    display: grid;[m
+[32m+[m[32m    grid-template-columns: repeat(auto-fit, minmax(1em, 4em));[m
+[32m+[m[32m    position: absolute;[m
+[32m+[m[32m    bottom: 2em;[m
+[32m+[m[32m    align-items: center;[m
+[32m+[m[32m    justify-items: center;[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m    z-index: 2; }[m
+[32m+[m[32m  .carousel__indicator {[m
+[32m+[m[32m    width: 1.2em;[m
+[32m+[m[32m    height: 1.2em;[m
+[32m+[m[32m    background-color: transparent;[m
+[32m+[m[32m    border: solid 1px rgba(255, 255, 255, 0.45);[m
+[32m+[m[32m    border-radius: 50%;[m
+[32m+[m[32m    transition: background-color 150ms ease, border-color 150ms ease;[m
+[32m+[m[32m    cursor: pointer; }[m
+[32m+[m[32m    .carousel__indicator:hover {[m
+[32m+[m[32m      border-color: rgba(255, 255, 255, 0.75);[m
+[32m+[m[32m      background-color: rgba(255, 255, 255, 0.75); }[m
+[32m+[m[32m    .carousel__indicator_current {[m
+[32m+[m[32m      border-color: rgba(255, 255, 255, 0.75);[m
+[32m+[m[32m      background-color: rgba(255, 255, 255, 0.75);[m
+[32m+[m[32m      transition: background-color 150ms ease, border-color 150ms ease; }[m
+[32m+[m[32m      .carousel__indicator_current:hover {[m
+[32m+[m[32m        border-color: rgba(255, 255, 255, 0.9);[m
+[32m+[m[32m        background-color: rgba(255, 255, 255, 0.9); }[m
+[32m+[m
+[32m+[m[32m.masonry-grid {[m
+[32m+[m[32m  line-height: 0;[m
+[32m+[m[32m  column-count: 3;[m
+[32m+[m[32m  column-gap: 30px;[m
+[32m+[m[32m  margin: 0 auto; }[m
+[32m+[m[32m  .masonry-grid__item {[m
+[32m+[m[32m    position: relative;[m
+[32m+[m[32m    margin-bottom: 30px;[m
+[32m+[m[32m    color: white;[m
+[32m+[m[32m    transition: all 250ms ease-in-out;[m
+[32m+[m[32m    line-height: 1.5; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(1)::before {[m
+[32m+[m[32m      content: "1";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(2)::before {[m
+[32m+[m[32m      content: "2";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(3)::before {[m
+[32m+[m[32m      content: "3";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(4)::before {[m
+[32m+[m[32m      content: "4";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(5)::before {[m
+[32m+[m[32m      content: "5";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(6)::before {[m
+[32m+[m[32m      content: "6";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(7)::before {[m
+[32m+[m[32m      content: "7";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(8)::before {[m
+[32m+[m[32m      content: "8";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(9)::before {[m
+[32m+[m[32m      content: "9";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(10)::before {[m
+[32m+[m[32m      content: "10";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(11)::before {[m
+[32m+[m[32m      content: "11";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(12)::before {[m
+[32m+[m[32m      content: "12";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(13)::before {[m
+[32m+[m[32m      content: "13";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(14)::before {[m
+[32m+[m[32m      content: "14";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(15)::before {[m
+[32m+[m[32m      content: "15";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(16)::before {[m
+[32m+[m[32m      content: "16";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(17)::before {[m
+[32m+[m[32m      content: "17";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(18)::before {[m
+[32m+[m[32m      content: "18";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(19)::before {[m
+[32m+[m[32m      content: "19";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item:nth-of-type(20)::before {[m
+[32m+[m[32m      content: "20";[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      left: 1em;[m
+[32m+[m[32m      top: 1em;[m
+[32m+[m[32m      font-size: 5rem; }[m
+[32m+[m[32m    .masonry-grid__item_unraveled {[m
+[32m+[m[32m      display: block;[m
+[32m+[m[32m      position: fixed;[m
+[32m+[m[32m      width: 100vw;[m
+[32m+[m[32m      height: 100vh;[m
+[32m+[m[32m      top: 0;[m
+[32m+[m[32m      left: 0;[m
+[32m+[m[32m      z-index: 3;[m
+[32m+[m[32m      background-color: rgba(0, 0, 0, 0.65);[m
+[32m+[m[32m      transition: all 250ms ease-in-out; }[m
+[32m+[m[32m      .masonry-grid__item_unraveled:hover .masonry-grid__item_unraveled__title, .masonry-grid__item_unraveled:hover .masonry-grid__item_unraveled__paragraph, .masonry-grid__item_unraveled:hover .masonry-grid__item_unraveled__rating, .masonry-grid__item_unraveled:hover .masonry-grid__item_unraveled__link {[m
+[32m+[m[32m        opacity: 1;[m
+[32m+[m[32m        user-select: auto;[m
+[32m+[m[32m        z-index: 0; }[m
+[32m+[m[32m      .masonry-grid__item_unraveled__title, .masonry-grid__item_unraveled__paragraph, .masonry-grid__item_unraveled__rating, .masonry-grid__item_unraveled__link {[m
+[32m+[m[32m        opacity: 1 !important;[m
+[32m+[m[32m        user-select: auto !important;[m
+[32m+[m[32m        z-index: 5 !important; }[m
+[32m+[m[32m      .masonry-grid__item_unraveled__paragraph {[m
+[32m+[m[32m        top: 5em !important;[m
+[32m+[m[32m        width: 15% !important; }[m
+[32m+[m[32m      .masonry-grid__item_unraveled__rating {[m
+[32m+[m[32m        right: 0 !important;[m
+[32m+[m[32m        left: 2em !important;[m
+[32m+[m[32m        bottom: 5em !important; }[m
+[32m+[m[32m      .masonry-grid__item_unraveled__link {[m
+[32m+[m[32m        left: 1em !important;[m
+[32m+[m[32m        bottom: 3em !important; }[m
+[32m+[m[32m      .masonry-grid__item_unraveled__background {[m
+[32m+[m[32m        position: absolute;[m
+[32m+[m[32m        top: 50%;[m
+[32m+[m[32m        left: 50%;[m
+[32m+[m[32m        transform: translate(-50%, -50%);[m
+[32m+[m[32m        max-height: 700px !important;[m
+[32m+[m[32m        max-width: 1080px !important;[m
+[32m+[m[32m        object-fit: cover;[m
+[32m+[m[32m        z-index: 4 !important; }[m
+[32m+[m[32m        @media (max-width: 1600px) {[m
+[32m+[m[32m          .masonry-grid__item_unraveled__background {[m
+[32m+[m[32m            max-width: 660px !important; } }[m
+[32m+[m[32m      @media (max-width: 960px) {[m
+[32m+[m[32m        .masonry-grid__item_unraveled__background {[m
+[32m+[m[32m          top: 0;[m
+[32m+[m[32m          max-width: 100% !important;[m
+[32m+[m[32m          max-height: auto !important; } }[m
+[32m+[m[32m    .masonry-grid__item:hover .masonry-grid__item__title, .masonry-grid__item:hover .masonry-grid__item__paragraph, .masonry-grid__item:hover .masonry-grid__item__rating, .masonry-grid__item:hover .masonry-grid__item__link {[m
+[32m+[m[32m      opacity: 1;[m
+[32m+[m[32m      user-select: auto;[m
+[32m+[m[32m      z-index: 0; }[m
+[32m+[m[32m    .masonry-grid__item__background {[m
+[32m+[m[32m      position: relative;[m
+[32m+[m[32m      width: 100%;[m
+[32m+[m[32m      min-height: 250px;[m
+[32m+[m[32m      border-radius: .3em;[m
+[32m+[m[32m      object-fit: cover;[m
+[32m+[m[32m      box-shadow: 0 0.35em 1em rgba(0, 0, 0, 0.25);[m
+[32m+[m[32m      transition: filter 300ms ease-in-out, top 250ms ease-in-out, left 250ms ease-in-out;[m
+[32m+[m[32m      z-index: -1; }[m
+[32m+[m[32m    .masonry-grid__item__title, .masonry-grid__item__paragraph, .masonry-grid__item__rating, .masonry-grid__item__link {[m
+[32m+[m[32m      position: absolute;[m
+[32m+[m[32m      opacity: 0;[m
+[32m+[m[32m      user-select: none;[m
+[32m+[m[32m      transition: opacity 250ms ease-in-out; }[m
+[32m+[m[32m    .masonry-grid__item__title {[m
+[32m+[m[32m      left: 1em; }[m
+[32m+[m[32m    .masonry-grid__item__paragraph {[m
+[32m+[m[32m      font-size: .9em;[m
+[32m+[m[32m      bottom: 3.25em;[m
+[32m+[m[32m      left: 1em; }[m
+[32m+[m[32m    .masonry-grid__item__rating {[m
+[32m+[m[32m      width: 2.5em;[m
+[32m+[m[32m      height: 1em;[m
+[32m+[m[32m      right: 1em;[m
+[32m+[m[32m      bottom: 2.5em;[m
+[32m+[m[32m      text-align: right;[m
+[32m+[m[32m      background-image: url("../images/heart.png");[m
+[32m+[m[32m      background-size: contain;[m
+[32m+[m[32m      background-repeat: no-repeat;[m
+[32m+[m[32m      background-position: left bottom;[m
+[32m+[m[32m      cursor: pointer; }[m
+[32m+[m[32m    .masonry-grid__item__link {[m
+[32m+[m[32m      bottom: 2.5em;[m
+[32m+[m[32m      left: 1.2em;[m
+[32m+[m[32m      color: rgba(255, 255, 255, 0.75);[m
+[32m+[m[32m      font-size: .7em;[m
+[32m+[m[32m      font-style: italic; }[m
+[32m+[m[32m      .masonry-grid__item__link:hover {[m
+[32m+[m[32m        color: white; }[m
+[32m+[m
+[32m+[m[32m@media (max-width: 1080px) {[m
+[32m+[m[32m  section {[m
+[32m+[m[32m    width: 90%; }[m
+[32m+[m
+[32m+[m[32m  .headline p {[m
+[32m+[m[32m    width: 90%; }[m
+[32m+[m
+[32m+[m[32m  .masonry-grid {[m
+[32m+[m[32m    column-count: 2; } }[m
+[32m+[m[32m@media (max-width: 580px) {[m
+[32m+[m[32m  .masonry-grid {[m
+[32m+[m[32m    column-count: 1; } }[m
+[32m+[m
+[32m+[m[32m/*# sourceMappingURL=style.css.map */[m
+[1mdiff --git a/css/style.css.map b/css/style.css.map[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b14ca60[m
+[1m--- /dev/null[m
+[1m+++ b/css/style.css.map[m
+[36m@@ -0,0 +1,7 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m"version": 3,[m
+[32m+[m[32m"mappings": "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",[m
+[32m+[m[32m"sources": ["style.scss"],[m
+[32m+[m[32m"names": [],[m
+[32m+[m[32m"file": "style.css"[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/css/style.scss b/css/style.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..acbf4e5[m
+[1m--- /dev/null[m
+[1m+++ b/css/style.scss[m
+[36m@@ -0,0 +1,336 @@[m
+[32m+[m
+[32m+[m[32m@import url("https://use.typekit.net/qyx8wyr.css");[m
+[32m+[m
+[32m+[m[32m*, *::before, *::after { box-sizing: border-box; }[m
+[32m+[m
+[32m+[m[32mbody {[m
+[32m+[m
+[32m+[m	[32mdisplay: grid;[m
+[32m+[m	[32malign-items: center;[m
+[32m+[m	[32mjustify-items: center;[m
+[32m+[m	[32mpadding: 0;[m
+[32m+[m	[32mmargin: 0;[m
+[32m+[m	[32mfont-family: regulator-nova, sans-serif;[m
+[32m+[m	[32mfont-weight: 300;[m
+[32m+[m	[32mfont-style: normal;[m
+[32m+[m	[32mline-height: 1.5;[m
+[32m+[m	[32mletter-spacing: .065em;[m
+[32m+[m	[32mword-spacing: .2em;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32msection {[m
+[32m+[m
+[32m+[m	[32mwidth: 1080px;[m
+[32m+[m	[32mmargin-top: 100px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32ma {[m
+[32m+[m	[32mcolor: inherit;[m
+[32m+[m	[32mtext-decoration: none;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mh1 {[m
+[32m+[m	[32mfont-size: 3em;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.headline {[m
+[32m+[m[41m	[m
+[32m+[m	[32mp { width: 40%; }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.carousel {[m
+[32m+[m
+[32m+[m	[32mposition: relative;[m
+[32m+[m	[32mpadding: 0;[m
+[32m+[m	[32mbackground-image: linear-gradient(to top, rgba(0, 0, 0, .65), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));[m
+[32m+[m	[32mbackground-blend-mode: multiply;[m
+[32m+[m	[32mheight: 700px;[m
+[32m+[m	[32mwidth: 100%;[m
+[32m+[m	[32mmargin: 0;[m
+[32m+[m	[32moverflow: hidden;[m
+[32m+[m[41m	[m
+[32m+[m	[32m&__slides-container {[m
+[32m+[m[41m		[m
+[32m+[m		[32mposition: relative;[m
+[32m+[m		[32mlist-style: none;[m
+[32m+[m		[32mpadding: 0;[m
+[32m+[m		[32mmargin: 0;[m
+[32m+[m		[32mheight: 100%;[m
+[32m+[m		[32mz-index: -1;[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m	[32m&__slide {[m
+[32m+[m
+[32m+[m		[32mposition: absolute;[m
+[32m+[m		[32mheight: 100%;[m
+[32m+[m		[32mwidth: 100%;[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m	[32m&__image {[m
+[32m+[m
+[32m+[m		[32mposition: absolute;[m
+[32m+[m		[32mwidth: 100%;[m
+[32m+[m		[32mheight: 100%;[m
+[32m+[m		[32mobject-fit: cover;[m
+[32m+[m		[32mtop: 0;[m
+[32m+[m	[32m}[m[41m	[m
+[32m+[m
+[32m+[m	[32m&__button {[m
+[32m+[m
+[32m+[m		[32mall: unset;[m
+[32m+[m		[32mdisplay: flex;[m
+[32m+[m		[32mposition: absolute;[m
+[32m+[m		[32mtop: 50%;[m
+[32m+[m		[32mtransform: translateY(-50%);[m
+[32m+[m		[32mjustify-content: center;[m
+[32m+[m		[32malign-items: center;[m
+[32m+[m		[32mwidth: 3.5rem;[m
+[32m+[m		[32mheight: 3.5rem;[m
+[32m+[m		[32mbackground-color: transparent;[m
+[32m+[m		[32mborder-radius: 50%;[m
+[32m+[m		[32mcolor: rgba(white, .75);[m
+[32m+[m		[32mfont-size: 3em;[m
+[32m+[m		[32mline-height: 0;[m
+[32m+[m		[32muser-select: none;[m
+[32m+[m		[32mcursor: pointer;[m
+[32m+[m		[32mtransition: background-color 160ms ease-in-out,[m
+[32m+[m					[32mcolor 160ms ease-in-out;[m
+[32m+[m
+[32m+[m		[32m&_left { left: .5rem; }[m
+[32m+[m		[32m&_right { right: .5rem; }[m
+[32m+[m
+[32m+[m		[32m&:hover {[m
+[32m+[m
+[32m+[m			[32mbackground-color: rgba(black, .15);[m
+[32m+[m			[32mcolor: rgba(white, .95);[m
+[32m+[m		[32m}[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m	[32m&__indicators {[m
+[32m+[m
+[32m+[m		[32mdisplay: grid;[m
+[32m+[m		[32mgrid-template-columns: repeat(auto-fit, minmax(1em, 4em));[m
+[32m+[m		[32mposition: absolute;[m
+[32m+[m		[32mbottom: 2em;[m
+[32m+[m		[32malign-items: center;[m
+[32m+[m		[32mjustify-items: center;[m
+[32m+[m		[32mwidth: 100%;[m
+[32m+[m		[32mz-index: 2;[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m	[32m&__indicator {[m
+[32m+[m
+[32m+[m		[32mwidth: 1.2em;[m
+[32m+[m		[32mheight: 1.2em;[m
+[32m+[m		[32mbackground-color: transparent;[m
+[32m+[m		[32mborder: solid 1px rgba(white, .45);[m
+[32m+[m		[32mborder-radius: 50%;[m
+[32m+[m		[32mtransition: background-color 150ms ease,[m
+[32m+[m					[32mborder-color 150ms ease;[m
+[32m+[m		[32mcursor: pointer;[m
+[32m+[m
+[32m+[m		[32m&:hover {[m
+[32m+[m
+[32m+[m			[32mborder-color: rgba(white, .75);[m
+[32m+[m			[32mbackground-color: rgba(white, .75);[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m&_current {[m
+[32m+[m
+[32m+[m			[32mborder-color: rgba(white, .75);[m
+[32m+[m			[32mbackground-color: rgba(white, .75);[m
+[32m+[m			[32mtransition: background-color 150ms ease,[m
+[32m+[m						[32mborder-color 150ms ease;[m
+[32m+[m[41m			[m
+[32m+[m			[32m&:hover {[m
+[32m+[m
+[32m+[m				[32mborder-color: rgba(white, .9);[m
+[32m+[m				[32mbackground-color: rgba(white, .9);[m
+[32m+[m			[32m}[m
+[32m+[m		[32m}[m
+[32m+[m	[32m}[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m[32m$grid-padding: 30px;[m
+[32m+[m
+[32m+[m[32m.masonry-grid {[m
+[32m+[m
+[32m+[m	[32mline-height: 0;[m
+[32m+[m	[32mcolumn-count: 3;[m
+[32m+[m	[32mcolumn-gap: $grid-padding;[m
+[32m+[m	[32mmargin: 0 auto;[m
+[32m+[m
+[32m+[m	[32m&__item {[m
+[32m+[m
+[32m+[m		[32mposition: relative;[m
+[32m+[m		[32mmargin-bottom: $grid-padding;[m
+[32m+[m		[32mcolor: white;[m
+[32m+[m		[32mtransition: all 250ms ease-in-out;[m
+[32m+[m		[32mline-height: 1.5;[m
+[32m+[m
+[32m+[m		[32m@for $i from 1 through 20 {[m
+[32m+[m
+[32m+[m			[32m&:nth-of-type(#{$i}) {[m
+[32m+[m				[32m&::before {[m
+[32m+[m[41m					[m
+[32m+[m					[32mcontent: '#{$i}';[m
+[32m+[m					[32mposition: absolute;[m
+[32m+[m					[32mleft: 1em;[m
+[32m+[m					[32mtop: 1em;[m
+[32m+[m					[32mfont-size: 5rem;[m
+[32m+[m				[32m}[m
+[32m+[m			[32m}[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m&_unraveled {[m
+[32m+[m
+[32m+[m			[32mdisplay: block;[m
+[32m+[m			[32mposition: fixed;[m
+[32m+[m			[32mwidth: 100vw;[m
+[32m+[m			[32mheight: 100vh;[m
+[32m+[m			[32mtop: 0;[m
+[32m+[m			[32mleft: 0;[m
+[32m+[m			[32mz-index: 3;[m
+[32m+[m			[32mbackground-color: rgba(black, .65);[m
+[32m+[m			[32mtransition: all 250ms ease-in-out;[m
+[32m+[m
+[32m+[m			[32m&:hover &__title, &:hover &__paragraph, &:hover &__rating, &:hover &__link {[m
+[32m+[m[41m	[m
+[32m+[m				[32mopacity: 1;[m
+[32m+[m				[32muser-select: auto;[m
+[32m+[m				[32mz-index: 0;[m
+[32m+[m			[32m}[m
+[32m+[m
+[32m+[m			[32m&__title, &__paragraph, &__rating, &__link {[m
+[32m+[m[41m				[m
+[32m+[m				[32mopacity: 1 !important;[m
+[32m+[m				[32muser-select: auto !important;[m
+[32m+[m				[32mz-index: 5 !important;[m
+[32m+[m			[32m}[m
+[32m+[m
+[32m+[m			[32m&__paragraph {[m
+[32m+[m[41m				[m
+[32m+[m				[32mtop: 5em !important;[m
+[32m+[m				[32mwidth: 15% !important;[m
+[32m+[m			[32m}[m
+[32m+[m
+[32m+[m			[32m&__rating {[m
+[32m+[m
+[32m+[m				[32mright: 0 !important;[m
+[32m+[m				[32mleft: 2em !important;[m
+[32m+[m				[32mbottom: 5em !important;[m
+[32m+[m			[32m}[m
+[32m+[m
+[32m+[m			[32m&__link {[m
+[32m+[m
+[32m+[m				[32mleft: 1em !important;[m
+[32m+[m				[32mbottom: 3em !important;[m
+[32m+[m			[32m}[m
+[32m+[m
+[32m+[m			[32m&__background {[m
+[32m+[m
+[32m+[m				[32mposition: absolute;[m
+[32m+[m				[32mtop: 50%;[m
+[32m+[m				[32mleft: 50%;[m
+[32m+[m				[32mtransform: translate(-50%, -50%);[m
+[32m+[m				[32mmax-height: 700px !important;[m
+[32m+[m				[32mmax-width: 1080px !important;[m
+[32m+[m				[32mobject-fit: cover;[m
+[32m+[m				[32mz-index: 4 !important;[m
+[32m+[m
+[32m+[m				[32m@media (max-width: 1600px) {[m
+[32m+[m					[32mmax-width: 660px !important;[m
+[32m+[m				[32m}[m
+[32m+[m			[32m}[m
+[32m+[m
+[32m+[m			[32m@media (max-width: 960px) {[m
+[32m+[m
+[32m+[m				[32m&__background {[m
+[32m+[m
+[32m+[m					[32mtop: 0;[m
+[32m+[m					[32mmax-width: 100% !important;[m
+[32m+[m					[32mmax-height: auto !important;[m
+[32m+[m				[32m}[m
+[32m+[m			[32m}[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m&:hover &__title, &:hover &__paragraph, &:hover &__rating, &:hover &__link {[m
+[32m+[m[41m	[m
+[32m+[m			[32mopacity: 1;[m
+[32m+[m			[32muser-select: auto;[m
+[32m+[m			[32mz-index: 0;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m&__background {[m
+[32m+[m[41m			[m
+[32m+[m			[32mposition: relative;[m
+[32m+[m			[32mwidth: 100%;[m
+[32m+[m			[32mmin-height: 250px;[m
+[32m+[m			[32mborder-radius: .3em;[m
+[32m+[m			[32mobject-fit: cover;[m
+[32m+[m			[32mbox-shadow: 0 .35em 1em rgba(black, .25);[m
+[32m+[m			[32mtransition: filter 300ms ease-in-out,[m
+[32m+[m						[32mtop 250ms ease-in-out,[m
+[32m+[m						[32mleft 250ms ease-in-out;[m
+[32m+[m			[32mz-index: -1;[m
+[32m+[m		[32m}[m
+[32m+[m[41m		[m
+[32m+[m		[32m&__title, &__paragraph, &__rating, &__link {[m
+[32m+[m[41m			[m
+[32m+[m			[32mposition: absolute;[m
+[32m+[m			[32mopacity: 0;[m
+[32m+[m			[32muser-select: none;[m
+[32m+[m			[32mtransition: opacity 250ms ease-in-out;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m&__title {[m
+[32m+[m
+[32m+[m			[32mleft: 1em;[m
+[32m+[m		[32m}[m
+[32m+[m[41m		[m
+[32m+[m		[32m&__paragraph {[m
+[32m+[m
+[32m+[m			[32mfont-size: .9em;[m
+[32m+[m			[32mbottom: 3.25em;[m
+[32m+[m			[32mleft: 1em;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m&__rating {[m
+[32m+[m
+[32m+[m			[32mwidth: 2.5em;[m
+[32m+[m			[32mheight: 1em;[m
+[32m+[m			[32mright: 1em;[m
+[32m+[m			[32mbottom: 2.5em;[m
+[32m+[m			[32mtext-align: right;[m
+[32m+[m			[32mbackground-image: url("../images/heart.png");[m
+[32m+[m			[32mbackground-size: contain;[m
+[32m+[m			[32mbackground-repeat: no-repeat;[m
+[32m+[m			[32mbackground-position: left bottom;[m
+[32m+[m			[32mcursor: pointer;[m
+[32m+[m		[32m}[m
+[32m+[m
+[32m+[m		[32m&__link {[m
+[32m+[m[41m			[m
+[32m+[m			[32mbottom: 2.5em;[m
+[32m+[m			[32mleft: 1.2em;[m
+[32m+[m			[32mcolor: rgba(white, .75);[m
+[32m+[m			[32mfont-size: .7em;[m
+[32m+[m			[32mfont-style: italic;[m
+[32m+[m
+[32m+[m			[32m&:hover { color: white; }[m
+[32m+[m		[32m}[m
+[32m+[m	[32m}[m[41m [m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m@media (max-width: 1080px) {[m
+[32m+[m[41m	[m
+[32m+[m	[32msection { width: 90%; }[m
+[32m+[m	[32m.headline { p { width: 90%; } }[m
+[32m+[m	[32m.masonry-grid { column-count: 2; }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m@media (max-width: 580px) {[m
+[32m+[m	[32m.masonry-grid { column-count: 1; }[m
+[32m+[m[32m}[m
+[32m+[m
+[1mdiff --git a/images/heart-pressed.png b/images/heart-pressed.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d441aa9[m
+Binary files /dev/null and b/images/heart-pressed.png differ
+[1mdiff --git a/images/heart-pressed.svg b/images/heart-pressed.svg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6b1adba[m
+[1m--- /dev/null[m
+[1m+++ b/images/heart-pressed.svg[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124.11 108.09"><defs><style>.cls-1{fill:#000000;}</style></defs><title>heart</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="heart"><path class="cls-1" d="M90.61,12a19.45,19.45,0,0,1,6.9,1.33c7.34,2.8,12.76,9.8,14.14,18.27,2.37,14.6-4.49,29.25-20.39,43.56A144.73,144.73,0,0,1,62,95a143.84,143.84,0,0,1-29.2-19.83C16.94,60.86,10.09,46.21,12.47,31.6c1.38-8.47,6.8-15.47,14.14-18.27A19.41,19.41,0,0,1,33.51,12c5.92,0,12.14,3.09,18.49,9.19a14.52,14.52,0,0,0,20.12,0C78.47,15.09,84.69,12,90.61,12m0-12c-7.91,0-17,3.17-26.8,12.54a2.54,2.54,0,0,1-3.5,0C50.56,3.17,41.42,0,33.51,0A31.38,31.38,0,0,0,22.33,2.12C10.63,6.58,2.64,17.32.63,29.68c-7.31,44.88,51.61,74.12,60.31,78.17a2.48,2.48,0,0,0,1.06.24,2.45,2.45,0,0,0,1.06-.24c8.71-4,67.74-33.28,60.43-78.17-2-12.36-10-23.1-21.71-27.56A31.28,31.28,0,0,0,90.61,0Z"/></g></g></g></svg>[m
+\ No newline at end of file[m
+[1mdiff --git a/images/heart.png b/images/heart.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7f58a0e[m
+Binary files /dev/null and b/images/heart.png differ
+[1mdiff --git a/images/heart.svg b/images/heart.svg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a6b8f2a[m
+[1m--- /dev/null[m
+[1m+++ b/images/heart.svg[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124.11 108.09"><defs><style>.cls-1{fill:#ffffff;}</style></defs><title>heart</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="heart"><path class="cls-1" d="M90.61,12a19.45,19.45,0,0,1,6.9,1.33c7.34,2.8,12.76,9.8,14.14,18.27,2.37,14.6-4.49,29.25-20.39,43.56A144.73,144.73,0,0,1,62,95a143.84,143.84,0,0,1-29.2-19.83C16.94,60.86,10.09,46.21,12.47,31.6c1.38-8.47,6.8-15.47,14.14-18.27A19.41,19.41,0,0,1,33.51,12c5.92,0,12.14,3.09,18.49,9.19a14.52,14.52,0,0,0,20.12,0C78.47,15.09,84.69,12,90.61,12m0-12c-7.91,0-17,3.17-26.8,12.54a2.54,2.54,0,0,1-3.5,0C50.56,3.17,41.42,0,33.51,0A31.38,31.38,0,0,0,22.33,2.12C10.63,6.58,2.64,17.32.63,29.68c-7.31,44.88,51.61,74.12,60.31,78.17a2.48,2.48,0,0,0,1.06.24,2.45,2.45,0,0,0,1.06-.24c8.71-4,67.74-33.28,60.43-78.17-2-12.36-10-23.1-21.71-27.56A31.28,31.28,0,0,0,90.61,0Z"/></g></g></g></svg>[m
+\ No newline at end of file[m
+[1mdiff --git a/images/slide-1.jpg b/images/slide-1.jpg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..951896c[m
+Binary files /dev/null and b/images/slide-1.jpg differ
+[1mdiff --git a/images/slide-2.jpg b/images/slide-2.jpg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8b29bb6[m
+Binary files /dev/null and b/images/slide-2.jpg differ
+[1mdiff --git a/images/slide-3.jpg b/images/slide-3.jpg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cfadb6d[m
+Binary files /dev/null and b/images/slide-3.jpg differ
+[1mdiff --git a/images/slide-4.jpg b/images/slide-4.jpg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6280ebc[m
+Binary files /dev/null and b/images/slide-4.jpg differ
+[1mdiff --git a/images/slide-5.jpg b/images/slide-5.jpg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f7e9c1e[m
+Binary files /dev/null and b/images/slide-5.jpg differ
+[1mdiff --git a/index.html b/index.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..03f9898[m
+[1m--- /dev/null[m
+[1m+++ b/index.html[m
+[36m@@ -0,0 +1,231 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html>[m
+[32m+[m[41m	[m
+[32m+[m	[32m<head>[m
+[32m+[m		[32m<title>Carousel Test</title>[m
+[32m+[m		[32m<meta charset="UTF-8">[m
+[32m+[m		[32m<meta name="viewport" content="width = device-width, initial-scale = 1.0">[m
+[32m+[m		[32m<meta name="author" content="Hazeman">[m
+[32m+[m		[32m<meta name="description" content="Having fun with CSS and SASS...">[m
+[32m+[m		[32m<link rel="stylesheet" href="css/style.css">[m
+[32m+[m		[32m<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>[m
+[32m+[m		[32m<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>[m
+[32m+[m		[32m<script src="js/carousel.js"></script>[m
+[32m+[m		[32m<script src="js/masonry.js"></script>[m
+[32m+[m		[32m<script src="js/unravel.js"></script>[m
+[32m+[m	[32m</head>[m
+[32m+[m[41m	[m
+[32m+[m	[32m<body>[m
+[32m+[m		[32m<section class="carousel">[m
+[32m+[m[41m			[m
+[32m+[m			[32m<ul class="carousel__slides-container">[m
+[32m+[m				[32m<li>[m
+[32m+[m					[32m<img class="carousel__image" src="images/slide-1.jpg" alt="Gustavo Centurion | unsplash.com">[m
+[32m+[m				[32m</li>[m
+[32m+[m				[32m<li>[m
+[32m+[m					[32m<img class="carousel__image" src="images/slide-2.jpg" alt="Pavel Nekoranec | unsplash.com">[m
+[32m+[m				[32m</li>[m
+[32m+[m				[32m<li>[m
+[32m+[m					[32m<img class="carousel__image" src="images/slide-3.jpg" alt="Steve Long | unsplash.com">[m
+[32m+[m				[32m</li>[m
+[32m+[m				[32m<li>[m
+[32m+[m					[32m<img class="carousel__image" src="images/slide-4.jpg" alt="Cassi Josh | unsplash.com">[m
+[32m+[m				[32m</li>[m
+[32m+[m				[32m<li>[m
+[32m+[m					[32m<img class="carousel__image" src="images/slide-5.jpg" alt="Cassi Josh | unsplash.com">[m
+[32m+[m				[32m</li>[m
+[32m+[m			[32m</ul>[m
+[32m+[m
+[32m+[m			[32m<button class="carousel__button carousel__button_left" name="previous"><</button>[m
+[32m+[m			[32m<button class="carousel__button carousel__button_right" name="next">></button>[m
+[32m+[m		[32m</section>[m
+[32m+[m
+[32m+[m		[32m<section class="headline">[m
+[32m+[m			[32m<h1>Gallery Unsplash</h1>[m
+[32m+[m			[32m<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos, ad minus aperiam inventore quam error.</p>[m
+[32m+[m		[32m</section>[m
+[32m+[m
+[32m+[m		[32m<section class="masonry-grid">[m
+[32m+[m[41m			[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Lorem, ipsum.</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis sequi saepe assumenda aut vel placeat, facilis sed repellendus nemo distinctio ab necessitatibus nostrum.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m	[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Dignissimos, qui.</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Sunt dicta sequi nostrum accusantium sapiente esse corrupti ipsa expedita. Doloremque rem, expedita commodi odio tenetur eum, exercitationem ad, excepturi praesentium repellat assumenda.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Tempore, tempora?</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Esse consequatur odit facilis qui ex quis suscipit tempora doloribus. Beatae quia in, nostrum obcaecati quis aspernatur optio quasi eaque! Enim, officia nesciunt.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">At, laudantium!</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Necessitatibus sed inventore officia deleniti aut dolores magni soluta dolore quis officiis ipsa consequatur excepturi, eum voluptas consequuntur incidunt? Fugiat aspernatur placeat iure.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Obcaecati, nam.</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Ipsum repudiandae sequi eius. Voluptates quis commodi fuga molestias eius. Aut tenetur ipsum aperiam dignissimos possimus earum ea deserunt tempora cumque. Molestias, asperiores!</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Veniam, atque.</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Veritatis dolore totam quisquam omnis eum quaerat soluta assumenda, vitae nesciunt corrupti ex maiores incidunt, amet asperiores aut illo explicabo beatae blanditiis consequuntur.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Ipsa, qui.</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Mollitia sit minima dolorem quae quasi similique exercitationem delectus, maxime atque voluptatum, nesciunt cum animi. Minus provident facilis ea harum iure obcaecati at.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Consequatur, veritatis!</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Fugit culpa temporibus provident beatae doloremque quaerat veniam quod. Cumque facilis odit minima ratione autem expedita doloremque nam sapiente, magnam voluptate reprehenderit facere!</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Molestiae, autem.</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Nam, corporis magni. Facere asperiores iusto adipisci labore dolorum tempora facilis impedit quidem, quos culpa. Natus molestiae repellendus magni aliquam, fuga facilis perspiciatis.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Eos, nobis.</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Tempora dolorem nemo eveniet reiciendis aut repellat magnam corrupti? Vitae repellendus, quisquam porro maxime vel temporibus amet quibusdam, distinctio consequatur, laborum ab dolore?</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Hic, repellat.</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Facilis dolore iure consequuntur totam quo, voluptatem nesciunt quasi quod omnis ea accusantium at est nemo eligendi, doloribus modi. Natus accusantium illo libero!</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Nesciunt, delectus!</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Qui ex explicabo deleniti asperiores iusto ratione voluptatem laborum, similique id nesciunt minima provident esse suscipit aut dolorum nemo, cum, alias accusamus? Itaque!</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Totam, tempore?</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Provident sint odit veritatis deserunt id totam libero accusamus voluptatibus obcaecati unde natus, repellat fuga tempore repudiandae consequuntur assumenda harum doloribus omnis fugiat.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Minus, tenetur!</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Tempora amet provident repellat eum explicabo mollitia sapiente iste? Eos distinctio placeat voluptatum quia quis veritatis, expedita excepturi vitae, corrupti, assumenda laboriosam nemo?</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Velit, facere.</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Repellendus, veniam. Voluptatum corporis nemo odio unde eveniet, qui incidunt hic voluptate doloribus dolorum? Laborum aspernatur ab debitis quidem natus reiciendis excepturi harum!</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Consectetur, consequuntur!</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Quos voluptatum, ullam maiores a perferendis, veritatis perspiciatis consequuntur vitae sint maxime voluptatem neque reiciendis sunt aliquid quibusdam et blanditiis libero cupiditate beatae.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Accusantium, vel?</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Sapiente architecto, autem cupiditate blanditiis odit minima iure. A porro voluptas quisquam? Atque ducimus debitis officia animi laudantium. Vero magni pariatur doloribus rerum.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Sed, non?</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">In eos voluptatum dignissimos dolorem officia vero deleniti et eum similique veritatis. Nemo nostrum voluptatibus saepe hic vero sit ut quis placeat minus.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Expedita, commodi?</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Dolore molestias commodi ea doloribus doloremque harum quibusdam eum quis esse. Nemo illo atque culpa natus officia dolore quis quos sunt beatae magni.</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m[41m			[m
+[32m+[m			[32m<div class="masonry-grid__item">[m
+[32m+[m[41m				[m
+[32m+[m				[32m<h2 class="masonry-grid__item__title">Optio, architecto!</h2>[m
+[32m+[m				[32m<p class="masonry-grid__item__paragraph">Vel asperiores delectus dolorem, id, dicta maiores sunt consequatur laborum magni corporis ullam commodi veniam? Porro saepe recusandae exercitationem. Beatae illum rem at?</p>[m
+[32m+[m				[32m<a href="#" class="masonry-grid__item__link">To the item's page</a>[m
+[32m+[m				[32m<div class="masonry-grid__item__rating">47</div>[m
+[32m+[m				[32m<img src="" alt="" class="masonry-grid__item__background">[m
+[32m+[m			[32m</div>[m
+[32m+[m		[32m</section>[m
+[32m+[m	[32m</body>[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/js/carousel.js b/js/carousel.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cae4bd7[m
+[1m--- /dev/null[m
+[1m+++ b/js/carousel.js[m
+[36m@@ -0,0 +1,217 @@[m
+[32m+[m[32mclass Carousel {[m
+[32m+[m
+[32m+[m[32m    constructor(container, nextSlideButton, prevSlideButton, slideAnimationDuration) {[m
+[32m+[m
+[32m+[m[32m        this.slideAnimationDuration = slideAnimationDuration;[m
+[32m+[m[32m        this.slidesTrack = container;[m
+[32m+[m[32m        this.nextSlideButton = nextSlideButton;[m
+[32m+[m[32m        this.prevSlideButton = prevSlideButton;[m
+[32m+[m
+[32m+[m[32m        this.slides = Array.from(this.slidesTrack.children);[m
+[32m+[m[41m        [m
+[32m+[m[32m        this.slidesAmount = this.slides.length;[m
+[32m+[m[32m        this.slideWidth = this.slides[0].getBoundingClientRect().width;[m
+[32m+[m[41m        [m
+[32m+[m		[32mthis.indicatorsList = this.slidesTrack.parentElement.appendChild(document.createElement('div'));[m
+[32m+[m[32m        this.indicators = new Array;[m
+[32m+[m
+[32m+[m[32m        this.currentSlide = null;[m
+[32m+[m[32m        this.currentSlideIndex = null;[m
+[32m+[m[32m        this.currentIndicator = null;[m
+[32m+[m[32m        this.targetSlide = null;[m
+[32m+[m[32m        this.targetSlideIndex = null;[m
+[32m+[m		[32mthis.targetIndicator = null;[m
+[32m+[m[41m		[m
+[32m+[m		[32mthis.targetIsOutOfBounds = false;[m
+[32m+[m		[32mthis.onGoingAnimation = false;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    createCarouselSlidesClasses() {[m
+[32m+[m
+[32m+[m[32m        this.slides.forEach(slide => {[m
+[32m+[m[32m            slide.classList.add('carousel__slide');[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        this.slides[0].classList.add('carousel__slide_current');[m
+[32m+[m[32m        this.targetSlideIndex = 0;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    createIndicators() {[m
+[32m+[m
+[32m+[m[32m        this.indicatorsList.classList.add('carousel__indicators');[m
+[32m+[m
+[32m+[m[32m        for (let i = 0; i < this.slidesAmount; i++)[m
+[32m+[m[32m            this.indicators.push(document.createElement('div'));[m
+[32m+[m[41m    [m
+[32m+[m[32m        this.indicators.forEach((indicator) => {[m
+[32m+[m
+[32m+[m[32m            indicator.classList.add('carousel__indicator');[m
+[32m+[m[32m            this.indicatorsList.appendChild(indicator);[m
+[32m+[m[32m        });[m
+[32m+[m[41m    [m
+[32m+[m[32m        this.indicators[0].classList.add('carousel__indicator_current');[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    positionSlides(currentSlideIndex, slideWidth) {[m
+[32m+[m
+[32m+[m[32m        for (let i = 0; i < this.slidesAmount; i++) {[m
+[32m+[m
+[32m+[m[32m            if (i == currentSlideIndex) {[m
+[32m+[m[41m                [m
+[32m+[m[32m                this.slides[currentSlideIndex].style.left = 0 + 'px';[m
+[32m+[m[32m                continue;[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m            this.slides[i].style.left = slideWidth + 'px';[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+[32m+[m[32m    reassignCurrentSlide() {[m
+[32m+[m[41m    [m
+[32m+[m[32m        this.currentSlide.classList.remove('carousel__slide_current');[m
+[32m+[m[32m        this.targetSlide.classList.add('carousel__slide_current');[m
+[32m+[m[41m        [m
+[32m+[m[32m        this.currentIndicator.classList.remove('carousel__indicator_current');[m
+[32m+[m[32m        this.targetIndicator.classList.add('carousel__indicator_current');[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    moveToSlide() {[m
+[32m+[m
+[32m+[m[32m        this.targetSlideIndex = this.slides.findIndex(slide => slide === this.targetSlide);[m
+[32m+[m[32m        this.currentSlideIndex = this.slides.findIndex(slide => slide === this.currentSlide);[m
+[32m+[m[41m    [m
+[32m+[m[32m        if ((this.targetSlideIndex > this.currentSlideIndex)[m
+[32m+[m[32m                && !this.targetIsOutOfBounds || this.targetIsOutOfBounds && this.targetSlideIndex == 0) {[m
+[32m+[m[41m        [m
+[32m+[m[32m            this.targetSlide.style.left = this.slideWidth + 'px';[m
+[32m+[m[32m            imagesLoaded(this.slides, this.animate('-='));[m
+[32m+[m[32m        }[m
+[32m+[m[32m        else if ((this.targetSlideIndex < this.currentSlideIndex)[m
+[32m+[m[32m                && !this.targetIsOutOfBounds || this.targetIsOutOfBounds && this.targetSlideIndex == this.slidesAmount - 1) {[m
+[32m+[m
+[32m+[m[32m            this.targetSlide.style.left = -this.slideWidth + 'px';[m
+[32m+[m[32m            imagesLoaded(this.slides, this.animate('+='));[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        this.reassignCurrentSlide();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    animate(direction) {[m
+[32m+[m
+[32m+[m[32m        this.onGoingAnimation = true;[m
+[32m+[m
+[32m+[m[32m        $(this.currentSlide).animate({[m
+[32m+[m[32m            left: direction + this.slideWidth[m
+[32m+[m[32m        },[m
+[32m+[m[32m        {[m
+[32m+[m[32m            duration: this.slideAnimationDuration,[m
+[32m+[m[32m            easing: 'swing',[m
+[32m+[m[32m            start: () => {[m
+[32m+[m[32m                $(this.targetSlide).animate({[m
+[32m+[m[32m                    left: direction + this.slideWidth[m
+[32m+[m[32m                },[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    duration: this.slideAnimationDuration,[m
+[32m+[m[32m                    easing: 'swing',[m
+[32m+[m[32m                    complete: () => {[m
+[32m+[m[32m                        this.currentSlide.style.left = this.slideWidth + 'px';[m
+[32m+[m[32m                        this.onGoingAnimation = false;[m
+[32m+[m[32m                    }[m
+[32m+[m[32m                });[m
+[32m+[m[32m            }[m
+[32m+[m[32m        });[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    getCurrentAndTargetSlide(direction) {[m
+[32m+[m
+[32m+[m[32m        this.currentSlide = this.slidesTrack.querySelector('.carousel__slide_current');[m
+[32m+[m[32m        this.currentIndicator = this.indicatorsList.querySelector('.carousel__indicator_current');[m
+[32m+[m[41m    [m
+[32m+[m[32m        if (direction == 'forward') {[m
+[32m+[m
+[32m+[m[32m            this.targetSlide = this.currentSlide.nextElementSibling;[m
+[32m+[m[32m            this.targetIndicator = this.currentIndicator.nextElementSibling;[m
+[32m+[m
+[32m+[m[32m            if (!this.targetSlide) {[m
+[32m+[m[41m                [m
+[32m+[m[32m                this.targetSlide = this.slides[0];[m
+[32m+[m[32m                this.targetIndicator = this.indicators[0];[m
+[32m+[m
+[32m+[m[32m                return true;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[41m        [m
+[32m+[m[32m        else if (direction == 'backward') {[m
+[32m+[m
+[32m+[m[32m            this.targetSlide = this.currentSlide.previousElementSibling;[m
+[32m+[m[32m            this.targetIndicator = this.currentIndicator.previousElementSibling;[m
+[32m+[m
+[32m+[m[32m            if (!this.targetSlide) {[m
+[32m+[m[41m            [m
+[32m+[m[32m                this.targetSlide = this.slides[this.slidesAmount - 1];[m
+[32m+[m[32m                this.targetIndicator = this.indicators[this.slidesAmount - 1];[m
+[32m+[m
+[32m+[m[32m                return true;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        else {[m
+[32m+[m
+[32m+[m[32m            this.targetSlide = this.slides[direction];[m
+[32m+[m[32m            this.targetIndicator = this.indicators[direction];[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        return false;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    slide(direction) {[m
+[32m+[m
+[32m+[m[32m        this.targetIsOutOfBounds = this.getCurrentAndTargetSlide(direction);[m
+[32m+[m[32m        this.moveToSlide(this.targetIsOutOfBounds);[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m// ===========================[m
+[32m+[m
+[32m+[m[32m$(document).ready(() => {[m
+[32m+[m
+[32m+[m	[32mconst slidesTrack = document.querySelector('.carousel__slides-container');[m
+[32m+[m	[32mconst nextSlideButton = document.querySelector('.carousel__button_right');[m
+[32m+[m	[32mconst prevSlideButton = document.querySelector('.carousel__button_left');[m
+[32m+[m
+[32m+[m	[32mconst carousel = new Carousel(slidesTrack, nextSlideButton, prevSlideButton, 450);[m
+[32m+[m
+[32m+[m	[32mcarousel.createCarouselSlidesClasses();[m
+[32m+[m	[32mcarousel.createIndicators();[m
+[32m+[m	[32mcarousel.positionSlides(0, carousel.slideWidth);[m
+[32m+[m
+[32m+[m	[32m$(window).resize(() => {[m
+[32m+[m
+[32m+[m		[32mcarousel.slideWidth = carousel.slides[0].getBoundingClientRect().width;[m
+[32m+[m		[32mcarousel.positionSlides(carousel.targetSlideIndex, carousel.slideWidth);[m
+[32m+[m	[32m});[m
+[32m+[m
+[32m+[m	[32m$(carousel.nextSlideButton).click(() => {[m
+[32m+[m[41m		[m
+[32m+[m		[32mif (carousel.onGoingAnimation)[m
+[32m+[m			[32mreturn;[m
+[32m+[m[41m		[m
+[32m+[m		[32mcarousel.slide('forward');[m
+[32m+[m	[32m});[m
+[32m+[m
+[32m+[m	[32m$(carousel.prevSlideButton).click(() => {[m
+[32m+[m[41m		[m
+[32m+[m		[32mif (carousel.onGoingAnimation)[m
+[32m+[m			[32mreturn;[m
+[32m+[m[41m		[m
+[32m+[m		[32mcarousel.slide('backward');[m
+[32m+[m	[32m});[m
+[32m+[m
+[32m+[m	[32m$(carousel.indicators).click(function() {[m
+[32m+[m[41m		[m
+[32m+[m		[32mif (carousel.onGoingAnimation)[m
+[32m+[m			[32mreturn;[m
+[32m+[m
+[32m+[m		[32mcarousel.slide(carousel.indicators.findIndex(indicator => indicator == this));[m
+[32m+[m	[32m});[m
+[32m+[m[32m});[m
+[1mdiff --git a/js/masonry.js b/js/masonry.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..53100d3[m
+[1m--- /dev/null[m
+[1m+++ b/js/masonry.js[m
+[36m@@ -0,0 +1,76 @@[m
+[32m+[m
+[32m+[m[32m$(document).ready(() => {[m
+[32m+[m
+[32m+[m[32m    // ** Filling with random images **[m
+[32m+[m[41m    [m
+[32m+[m[32m    const images = Array.from($('.masonry-grid__item__background'));[m
+[32m+[m[32m    images.forEach((image, index) => {[m
+[32m+[m[41m        [m
+[32m+[m[32m        $(image).attr('src', 'https://source.unsplash.com/random/60' + index);[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    // ===============================[m
+[32m+[m[32m    // New Line[m
+[32m+[m[32m    /*const resizeGridItem = (item) => {[m
+[32m+[m
+[32m+[m[32m        const grid = $('.masonry-grid')[0];[m
+[32m+[m[32m        const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));[m
+[32m+[m[32m        const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));[m
+[32m+[m[32m        const imageHeight = item.querySelector('.masonry-grid__item__background').getBoundingClientRect().height;[m
+[32m+[m[32m        const rowSpan = Math.ceil((imageHeight + rowGap) / (rowHeight + rowGap));[m
+[32m+[m
+[32m+[m[32m        item.style.gridRowEnd = "span " + rowSpan;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    const resizeAllGridItems = () => {[m
+[32m+[m[41m        [m
+[32m+[m[32m        const allItems = document.getElementsByClassName('masonry-grid__item');[m
+[32m+[m[41m        [m
+[32m+[m[32m        for(let i = 0; i < allItems.length; i++)[m
+[32m+[m[32m            resizeGridItem(allItems[i]);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    const resizeInstance = (instance) => {[m
+[32m+[m[41m        [m
+[32m+[m[32m        const item = instance.elements[0];[m
+[32m+[m[32m        resizeGridItem(item);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    window.onload = resizeAllGridItems();[m
+[32m+[m[32m    window.addEventListener('resize', resizeAllGridItems);[m
+[32m+[m
+[32m+[m[32m    const allItems = document.getElementsByClassName('masonry-grid__item');[m
+[32m+[m[41m    [m
+[32m+[m[32m    for(i = 0; i < allItems.length; i++)[m
+[32m+[m[32m        if (allItems[i].getElementsByTagName('img').length > 0)[m
+[32m+[m[32m            imagesLoaded(allItems[i], resizeInstance);[m
+[32m+[m[32m*/[m
+[32m+[m
+[32m+[m[32m    // ** RATING **[m
+[32m+[m
+[32m+[m[32m    const ratingButton = $('.masonry-grid__item__rating');[m
+[32m+[m[41m    [m
+[32m+[m[32m    var rated = false;[m
+[32m+[m
+[32m+[m[32m    $(ratingButton).click(function() {[m
+[32m+[m
+[32m+[m[32m        const path = $($(this)).css('background-image');[m
+[32m+[m[32m        const rating = $(this);[m
+[32m+[m[32m        const currentRating = parseInt($(rating).text());[m
+[32m+[m
+[32m+[m[32m        if (rated) {[m
+[32m+[m[41m            [m
+[32m+[m[32m            $(rating).css('background-image', path.replace('heart-pressed.png', 'heart.png'));[m
+[32m+[m[32m            $(rating).text(currentRating - 1);[m
+[32m+[m[41m            [m
+[32m+[m[32m            rated = false;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        else {[m
+[32m+[m[41m            [m
+[32m+[m[32m            $(rating).css('background-image', path.replace('heart.png', 'heart-pressed.png'));[m
+[32m+[m[32m            $(rating).text(currentRating + 1);[m
+[32m+[m
+[32m+[m[32m            rated = true;[m
+[32m+[m[32m        }[m
+[32m+[m[32m    });[m
+[32m+[m[32m});[m
+\ No newline at end of file[m
+[1mdiff --git a/js/unravel.js b/js/unravel.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f9fd670[m
+[1m--- /dev/null[m
+[1m+++ b/js/unravel.js[m
+[36m@@ -0,0 +1,50 @@[m
+[32m+[m
+[32m+[m[32m$(document).ready(() => {[m
+[32m+[m
+[32m+[m[32m    const containerClassName = 'masonry-grid__item';[m
+[32m+[m[32m    const items = document.getElementsByClassName(containerClassName);[m
+[32m+[m
+[32m+[m[32m    var unraveled = false;[m
+[32m+[m[32m    var unraveledItem = null;[m
+[32m+[m[32m    var unraveledItemChildren, unraveledItemChildrenSufixes;[m
+[32m+[m
+[32m+[m[32m    $(items).hover(function() {[m
+[32m+[m
+[32m+[m[32m        this.addEventListener('click', e => {[m
+[32m+[m[32m            $(this.children[4]).css('filter', 'brightness(100%)');[m
+[32m+[m[32m        });[m
+[32m+[m[32m        if (unraveled) return;[m
+[32m+[m[32m        else $(this.children[4]).css('filter', 'brightness(65%)');[m
+[32m+[m[32m    }, function() {[m
+[32m+[m[32m        $(this.children[4]).css('filter', 'brightness(100%)');[m
+[32m+[m[32m    });[m
+[32m+[m
+[32m+[m[32m    $(items).click(function() {[m
+[32m+[m
+[32m+[m[32m        if (unraveled) {[m
+[32m+[m
+[32m+[m[32m            unraveledItem.classList.remove(unraveledItem.classList[1]);[m
+[32m+[m[32m            unraveledItemChildren.forEach(child => { child.classList.remove(child.classList[1]); });[m
+[32m+[m[32m            unraveled = false;[m
+[32m+[m[32m        }[m
+[32m+[m[41m        [m
+[32m+[m[32m        else {[m
+[32m+[m
+[32m+[m[32m            this.classList.add(this.className + '_unraveled');[m
+[32m+[m[41m            [m
+[32m+[m[32m            unraveledItem = this;[m
+[32m+[m[32m            unraveled = true;[m
+[32m+[m
+[32m+[m[32m            unraveledItemChildren = Array.from(unraveledItem.children);[m
+[32m+[m[32m            unraveledItemChildrenSufixes = new Array;[m
+[32m+[m
+[32m+[m[32m            unraveledItemChildren.forEach(child => {[m
+[32m+[m[32m                unraveledItemChildrenSufixes.push(child.className.replace(containerClassName, ''));[m
+[32m+[m[32m            });[m
+[32m+[m
+[32m+[m[32m            unraveledItemChildren.forEach((child, index) => {[m
+[32m+[m[32m                child.classList.add(unraveledItem.classList[1] + unraveledItemChildrenSufixes[index]);[m
+[32m+[m[32m            });[m
+[32m+[m[32m        }[m
+[32m+[m[32m    });[m
+[32m+[m[32m});[m
+\ No newline at end of file[m
