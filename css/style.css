@@ -13,7 +13,8 @@ body {
   font-style: normal;
   line-height: 1.5;
   letter-spacing: .065em;
-  word-spacing: .2em; }
+  word-spacing: .2em;
+  overflow-x: hidden; }
 
 section {
   width: 1080px;
@@ -36,8 +37,7 @@ h1 {
   background-blend-mode: multiply;
   height: 700px;
   width: 100%;
-  margin: 0;
-  overflow: hidden; }
+  margin: 0; }
   .carousel__slides-container {
     position: relative;
     list-style: none;
@@ -108,105 +108,130 @@ h1 {
         border-color: rgba(255, 255, 255, 0.9);
         background-color: rgba(255, 255, 255, 0.9); }
 
+.unravel__item {
+  position: relative;
+  margin-bottom: 30px;
+  color: white;
+  transition: all 250ms ease-in-out;
+  line-height: 1.5;
+  user-select: none;
+  z-index: 0; }
+  .unravel__item_unraveled {
+    display: block;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.65);
+    transition: all 250ms ease-in-out; }
+    .unravel__item_unraveled:hover .unravel__item_unraveled__title, .unravel__item_unraveled:hover .unravel__item_unraveled__paragraph, .unravel__item_unraveled:hover .unravel__item_unraveled__rating, .unravel__item_unraveled:hover .unravel__item_unraveled__link {
+      opacity: 1;
+      user-select: auto;
+      z-index: 0; }
+    .unravel__item_unraveled__title, .unravel__item_unraveled__paragraph, .unravel__item_unraveled__rating, .unravel__item_unraveled__link {
+      opacity: 1 !important;
+      user-select: auto !important;
+      z-index: 5 !important; }
+    .unravel__item_unraveled__paragraph {
+      top: 5em !important;
+      width: 15% !important; }
+    .unravel__item_unraveled__rating {
+      right: 0 !important;
+      left: 2em !important;
+      bottom: 5em !important; }
+    .unravel__item_unraveled__link {
+      left: 1em !important;
+      bottom: 3em !important; }
+    .unravel__item_unraveled__background {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-height: 700px !important;
+      max-width: 1080px !important;
+      object-fit: cover;
+      z-index: 4 !important; }
+      @media (max-width: 1600px) {
+        .unravel__item_unraveled__background {
+          max-width: 660px !important; } }
+    @media (max-width: 960px) {
+      .unravel__item_unraveled__background {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 80% !important;
+        max-height: 80% !important; }
+      .unravel__item_unraveled__title, .unravel__item_unraveled__paragraph {
+        display: none; }
+      .unravel__item_unraveled__rating {
+        left: 10% !important;
+        bottom: 10% !important;
+        font-size: 1.4em; }
+      .unravel__item_unraveled__link {
+        left: 10% !important;
+        font-size: 1em !important; } }
+  .unravel__item:hover .unravel__item__title, .unravel__item:hover .unravel__item__paragraph, .unravel__item:hover .unravel__item__rating, .unravel__item:hover .unravel__item__link {
+    opacity: 1;
+    user-select: auto;
+    z-index: 0; }
+  .unravel__item__background {
+    position: relative;
+    width: 100%;
+    min-height: 250px;
+    border-radius: .3em;
+    object-fit: cover;
+    user-select: none;
+    z-index: -1;
+    box-shadow: 0 0.35em 1em rgba(0, 0, 0, 0.25);
+    transition: filter 300ms ease-in-out, top 250ms ease-in-out, left 250ms ease-in-out; }
+  .unravel__item__title, .unravel__item__paragraph, .unravel__item__rating, .unravel__item__link {
+    position: absolute;
+    opacity: 0;
+    user-select: none;
+    transition: opacity 250ms ease-in-out;
+    z-index: 1; }
+  .unravel__item__title {
+    left: 1em; }
+  .unravel__item__paragraph {
+    font-size: .9em;
+    bottom: 3.25em;
+    left: 1em; }
+  .unravel__item__rating {
+    width: 2.5em;
+    height: 1em;
+    right: 1em;
+    bottom: 2.5em;
+    text-align: right;
+    background-image: url("../images/icons/heart.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    cursor: pointer; }
+  .unravel__item__link {
+    bottom: 2.5em;
+    left: 1.2em;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: .7em;
+    font-style: italic; }
+    .unravel__item__link:hover {
+      color: white; }
+
 .masonry-grid {
   line-height: 0;
   column-count: 3;
   column-gap: 30px;
   margin: 0 auto; }
-  .masonry-grid__item {
-    position: relative;
-    margin-bottom: 30px;
-    color: white;
-    transition: all 250ms ease-in-out;
-    line-height: 1.5; }
-    .masonry-grid__item_unraveled {
-      display: block;
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      z-index: 3;
-      background-color: rgba(0, 0, 0, 0.65);
-      transition: all 250ms ease-in-out; }
-      .masonry-grid__item_unraveled:hover .masonry-grid__item_unraveled__title, .masonry-grid__item_unraveled:hover .masonry-grid__item_unraveled__paragraph, .masonry-grid__item_unraveled:hover .masonry-grid__item_unraveled__rating, .masonry-grid__item_unraveled:hover .masonry-grid__item_unraveled__link {
-        opacity: 1;
-        user-select: auto;
-        z-index: 0; }
-      .masonry-grid__item_unraveled__title, .masonry-grid__item_unraveled__paragraph, .masonry-grid__item_unraveled__rating, .masonry-grid__item_unraveled__link {
-        opacity: 1 !important;
-        user-select: auto !important;
-        z-index: 5 !important; }
-      .masonry-grid__item_unraveled__paragraph {
-        top: 5em !important;
-        width: 15% !important; }
-      .masonry-grid__item_unraveled__rating {
-        right: 0 !important;
-        left: 2em !important;
-        bottom: 5em !important; }
-      .masonry-grid__item_unraveled__link {
-        left: 1em !important;
-        bottom: 3em !important; }
-      .masonry-grid__item_unraveled__background {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-height: 700px !important;
-        max-width: 1080px !important;
-        object-fit: cover;
-        z-index: 4 !important; }
-        @media (max-width: 1600px) {
-          .masonry-grid__item_unraveled__background {
-            max-width: 660px !important; } }
-      @media (max-width: 960px) {
-        .masonry-grid__item_unraveled__background {
-          top: 0;
-          max-width: 100% !important;
-          max-height: auto !important; } }
-    .masonry-grid__item:hover .masonry-grid__item__title, .masonry-grid__item:hover .masonry-grid__item__paragraph, .masonry-grid__item:hover .masonry-grid__item__rating, .masonry-grid__item:hover .masonry-grid__item__link {
-      opacity: 1;
-      user-select: auto;
-      z-index: 0; }
-    .masonry-grid__item__background {
-      position: relative;
-      width: 100%;
-      min-height: 250px;
-      border-radius: .3em;
-      object-fit: cover;
-      box-shadow: 0 0.35em 1em rgba(0, 0, 0, 0.25);
-      transition: filter 300ms ease-in-out, top 250ms ease-in-out, left 250ms ease-in-out;
-      z-index: -1; }
-    .masonry-grid__item__title, .masonry-grid__item__paragraph, .masonry-grid__item__rating, .masonry-grid__item__link {
-      position: absolute;
-      opacity: 0;
-      user-select: none;
-      transition: opacity 250ms ease-in-out; }
-    .masonry-grid__item__title {
-      left: 1em; }
-    .masonry-grid__item__paragraph {
-      font-size: .9em;
-      bottom: 3.25em;
-      left: 1em; }
-    .masonry-grid__item__rating {
-      width: 2.5em;
-      height: 1em;
-      right: 1em;
-      bottom: 2.5em;
-      text-align: right;
-      background-image: url("../images/heart.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: left bottom;
-      cursor: pointer; }
-    .masonry-grid__item__link {
-      bottom: 2.5em;
-      left: 1.2em;
-      color: rgba(255, 255, 255, 0.75);
-      font-size: .7em;
-      font-style: italic; }
-      .masonry-grid__item__link:hover {
-        color: white; }
+
+.auto-sliding-grid {
+  width: 500%;
+  position: relative;
+  display: grid;
+  justify-self: start;
+  grid-template-rows: 300px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  grid-gap: 30px;
+  align-items: start; }
 
 @media (max-width: 1080px) {
   section {
@@ -217,6 +242,9 @@ h1 {
 
   .masonry-grid {
     column-count: 2; } }
+@media (max-width: 800px) {
+  .auto-sliding-grid {
+    display: none; } }
 @media (max-width: 580px) {
   .masonry-grid {
     column-count: 1; } }

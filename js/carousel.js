@@ -1,3 +1,4 @@
+
 class Carousel {
 
     constructor(container, nextSlideButton, prevSlideButton, slideAnimationDuration) {
@@ -169,49 +170,39 @@ class Carousel {
         this.targetIsOutOfBounds = this.getCurrentAndTargetSlide(direction);
         this.moveToSlide(this.targetIsOutOfBounds);
     }
-}
 
-// ===========================
+    addEventListeners() {
 
-$(document).ready(() => {
+        $(window).resize(() => {
 
-	const slidesTrack = document.querySelector('.carousel__slides-container');
-	const nextSlideButton = document.querySelector('.carousel__button_right');
-	const prevSlideButton = document.querySelector('.carousel__button_left');
+            this.slideWidth = this.slides[0].getBoundingClientRect().width;
+            this.positionSlides(this.targetSlideIndex, this.slideWidth);
+        });
+    
+        $(this.nextSlideButton).click(() => {
+            
+            if (this.onGoingAnimation)
+                return;
+            
+            this.slide('forward');
+        });
+    
+        $(this.prevSlideButton).click(() => {
+            
+            if (this.onGoingAnimation)
+                return;
+            
+            this.slide('backward');
+        });
+    
+        $(this.indicators).click((clickedIndicator) => {
 
-	const carousel = new Carousel(slidesTrack, nextSlideButton, prevSlideButton, 450);
+            if (this.onGoingAnimation)
+                return;
 
-	carousel.createCarouselSlidesClasses();
-	carousel.createIndicators();
-	carousel.positionSlides(0, carousel.slideWidth);
+            this.slide(this.indicators.findIndex(indicator => indicator == clickedIndicator.target));
+        });
+    }
+};
 
-	$(window).resize(() => {
-
-		carousel.slideWidth = carousel.slides[0].getBoundingClientRect().width;
-		carousel.positionSlides(carousel.targetSlideIndex, carousel.slideWidth);
-	});
-
-	$(carousel.nextSlideButton).click(() => {
-		
-		if (carousel.onGoingAnimation)
-			return;
-		
-		carousel.slide('forward');
-	});
-
-	$(carousel.prevSlideButton).click(() => {
-		
-		if (carousel.onGoingAnimation)
-			return;
-		
-		carousel.slide('backward');
-	});
-
-	$(carousel.indicators).click(function() {
-		
-		if (carousel.onGoingAnimation)
-			return;
-
-		carousel.slide(carousel.indicators.findIndex(indicator => indicator == this));
-	});
-});
+export default Carousel;

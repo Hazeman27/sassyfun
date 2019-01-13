@@ -1,50 +1,127 @@
 
-$(document).ready(() => {
+class Unravel {
 
-    const containerClassName = 'masonry-grid__item';
-    const items = document.getElementsByClassName(containerClassName);
+    constructor(container) {
 
-    var unraveled = false;
-    var unraveledItem = null;
-    var unraveledItemChildren, unraveledItemChildrenSufixes;
+        this.container = container;
+        this.items = Array.from(container.children);
+       
+        this.itemsTitles = new Array;
+        this.itemsParagraphs = new Array;
+        this.itemsRatings = new Array;
+        this.itemsLinks = new Array;
+        this.itemsBackgrounds = new Array;
 
-    $(items).hover(function() {
+        this.itemElementsClassNameSufixes = ['__title', '__paragraph', '__link', '__rating', '__background'];
 
-        this.addEventListener('click', e => {
-            $(this.children[4]).css('filter', 'brightness(100%)');
-        });
-        if (unraveled) return;
-        else $(this.children[4]).css('filter', 'brightness(65%)');
-    }, function() {
-        $(this.children[4]).css('filter', 'brightness(100%)');
-    });
+        this.unraveled = false;
+        this.unraveledItem = null;
+        this.unraveledItemElements = null;
 
-    $(items).click(function() {
+        this.rated = false;
+    }
 
-        if (unraveled) {
+    createUnravelClasses() {
 
-            unraveledItem.classList.remove(unraveledItem.classList[1]);
-            unraveledItemChildren.forEach(child => { child.classList.remove(child.classList[1]); });
-            unraveled = false;
-        }
-        
-        else {
+        this.container.classList.add('unravel');
 
-            this.classList.add(this.className + '_unraveled');
+        this.items.forEach((item, index) => {
+
+            item.classList.add('unravel__item');
             
-            unraveledItem = this;
-            unraveled = true;
+            this.itemsTitles.push(item.querySelector('h2'));
+            this.itemsTitles[index].classList.add('unravel__item__title');
 
-            unraveledItemChildren = Array.from(unraveledItem.children);
-            unraveledItemChildrenSufixes = new Array;
+            this.itemsParagraphs.push(item.querySelector('p'));
+            this.itemsParagraphs[index].classList.add('unravel__item__paragraph');
 
-            unraveledItemChildren.forEach(child => {
-                unraveledItemChildrenSufixes.push(child.className.replace(containerClassName, ''));
+            this.itemsRatings.push(item.querySelector('span'));
+            this.itemsRatings[index].classList.add('unravel__item__rating');
+
+            this.itemsLinks.push(item.querySelector('a'));
+            this.itemsLinks[index].classList.add('unravel__item__link');
+
+            this.itemsBackgrounds.push(item.querySelector('img'));
+            this.itemsBackgrounds[index].classList.add('unravel__item__background');
+        });
+    }
+
+    addEventListeners() {
+
+        $(this.items).hover((hoveredItem) => {
+           
+            $(hoveredItem.target).click( (item) => {
+                $(item.target).parent().children('.unravel__item__background').css('filter', 'brightness(100%)');
             });
 
-            unraveledItemChildren.forEach((child, index) => {
-                child.classList.add(unraveledItem.classList[1] + unraveledItemChildrenSufixes[index]);
-            });
-        }
-    });
-});
+            if (this.unraveled)
+                return;
+
+            else
+                $(hoveredItem.target).parent().children('.unravel__item__background').css('filter', 'brightness(65%)');
+
+        },(hoveredItem) => {
+
+            $(hoveredItem.target).parent().children('.unravel__item__background').css('filter', 'brightness(100%)');
+        });
+    
+        $(this.items).click((unraveledItem) => {
+
+            if (unraveledItem.target.className.includes('__rating'))
+                    return;
+
+            if (this.unraveled) {
+                
+                unraveledItem.target.classList.remove('unravel__item_unraveled');
+                
+                this.unraveledItemElements.forEach((element, index) => {
+                    element.classList.remove('unravel__item_unraveled' + this.itemElementsClassNameSufixes[index]);
+                });
+
+                this.unraveled = false;
+            }
+            
+            else {
+
+                unraveledItem = unraveledItem.target.parentElement;
+
+                unraveledItem.classList.add(unraveledItem.className + '_unraveled');
+                this.unraveledItemElements = Array.from(unraveledItem.children);
+    
+                this.unraveledItemElements.forEach((element, index) => {
+                    element.classList.add(unraveledItem.classList[unraveledItem.classList.length - 1] + this.itemElementsClassNameSufixes[index]);
+                });
+
+               
+                this.unraveled = true;
+            }
+        });
+    }
+
+    addRating() {
+
+        $(this.itemsRatings).click((clickedItem) => {
+    
+            const path = $(clickedItem.target).css('background-image');
+            const rating = $(clickedItem.target);
+            const currentRating = parseInt($(rating).text());
+    
+            if (this.rated) {
+                
+                $(rating).css('background-image', path.replace('heart-pressed.png', 'heart.png'));
+                $(rating).text(currentRating - 1);
+                
+                this.rated = false;
+            }
+            else {
+                
+                $(rating).css('background-image', path.replace('heart.png', 'heart-pressed.png'));
+                $(rating).text(currentRating + 1);
+    
+                this.rated = true;
+            }
+        });
+    }
+}
+
+export default Unravel;
