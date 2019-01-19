@@ -4,6 +4,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 $grid-padding: 30px;
+$content-container-width: 1080px;
 
 body {
 
@@ -23,7 +24,7 @@ body {
 
 section {
 
-	width: 1080px;
+	width: $content-container-width;
 	margin-top: 100px;
 }
 
@@ -36,6 +37,96 @@ h1 {
 	font-size: 3em;
 }
 
+nav {
+
+	position: fixed;
+	display: grid;
+	justify-items: center;
+	width: 100%;
+	top: 0;
+	color: white;
+	z-index: 5;
+	transition: color 250ms ease-in-out;
+
+	#nav-btn {
+		
+		display: none;
+
+		&:checked ~ label {
+
+			&:hover svg { rect { animation: none; } }
+
+			svg {
+
+				rect:nth-child(1) { transform: translateX(-10px) }
+				rect:nth-child(2) { transform: translateX(-10px); }
+				rect:nth-child(3) { transform: translateX(-10px); }
+			}
+		}
+	}
+
+	label {
+
+		display: none;
+		position: absolute;
+		justify-self: left;
+		left: 2em;
+		top: 2em;
+		z-index: 6;
+
+		svg {
+			
+			rect {
+
+				fill: white;
+				transition: transform 250ms ease-in-out;
+
+				&:nth-child(1) { transition-delay: 0ms; }
+				&:nth-child(2) { transition-delay: 250ms; }
+				&:nth-child(3) { transition-delay: 500ms; }
+			}
+		}
+	}
+	
+	ul {
+
+		list-style-type: none;
+		width: $content-container-width;
+		margin: 1em 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 100px));
+		justify-items: center;
+
+		a {
+
+			position: relative;
+			font-weight: 700;
+
+			&::after {
+
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 3px;
+				bottom: -.3em;
+				left: 0;
+				background-color: white;
+				transform: scale(0, 1);
+				transform-origin: left;
+				transition: transform 250ms ease-in-out,
+							background-color 250ms ease-in-out;
+			}
+
+			&.dark::after { background-color: black; }
+
+			&:hover::after {
+				transform: scale(1, 1);
+			}
+		}
+	}
+}
+
 .headline {
 	
 	p { width: 40%; }
@@ -45,7 +136,7 @@ h1 {
 
 	position: relative;
 	padding: 0;
-	background-image: linear-gradient(to top, rgba(0, 0, 0, .65), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+	background-image: linear-gradient(to top, rgba(black, .55), transparent 15%, transparent 90%, rgba(black, .35));
 	background-blend-mode: multiply;
 	height: 700px;
 	width: 100%;
@@ -355,6 +446,22 @@ h1 {
 }
 
 @media (max-width: 580px) {
+
+	nav {
+
+		label { display: block; }
+		#nav-btn:checked ~ ul { display: grid; }
+
+		ul {
+
+			display: none;
+			grid-template-columns: 1fr;
+			grid-row-gap: 2em;
+			margin: 2em 0;
+			width: 100%;			
+		}
+	}
+
 	.masonry-grid { column-count: 1; }
 }
 

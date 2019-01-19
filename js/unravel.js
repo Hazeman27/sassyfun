@@ -1,9 +1,10 @@
 
 class Unravel {
 
-    constructor(container) {
+    constructor(container, navigationBar) {
 
         this.container = container;
+        this.navigationBar = navigationBar;
         this.items = Array.from(container.children);
        
         this.itemsTitles = new Array;
@@ -18,7 +19,7 @@ class Unravel {
         this.unraveledItem = null;
         this.unraveledItemElements = null;
 
-        this.rated = false;
+        this.ratedItemsList = Array(this.items.length);
     }
 
     createUnravelClasses() {
@@ -71,12 +72,16 @@ class Unravel {
                     return;
 
             if (this.unraveled) {
+
+                unraveledItem = $('.unravel__item_unraveled')[0];
                 
-                unraveledItem.target.classList.remove('unravel__item_unraveled');
+                unraveledItem.classList.remove('unravel__item_unraveled');
                 
                 this.unraveledItemElements.forEach((element, index) => {
                     element.classList.remove('unravel__item_unraveled' + this.itemElementsClassNameSufixes[index]);
                 });
+
+                $('nav').css('display', 'grid');
 
                 this.unraveled = false;
             }
@@ -92,7 +97,8 @@ class Unravel {
                     element.classList.add(unraveledItem.classList[unraveledItem.classList.length - 1] + this.itemElementsClassNameSufixes[index]);
                 });
 
-               
+                $('nav').css('display', 'none');
+
                 this.unraveled = true;
             }
         });
@@ -102,23 +108,28 @@ class Unravel {
 
         $(this.itemsRatings).click((clickedItem) => {
     
-            const path = $(clickedItem.target).css('background-image');
-            const rating = $(clickedItem.target);
-            const currentRating = parseInt($(rating).text());
-    
-            if (this.rated) {
+            var path = $(clickedItem.target).css('background-image');
+            
+            var ratedItem = $(clickedItem.target)[0];
+            var currentRating = parseInt($(ratedItem).text());
+            
+            var ratedItemIndex = this.items.findIndex(item => item == ratedItem.parentElement);
+            var isRated = this.ratedItemsList[ratedItemIndex];
+            
+
+            if (isRated) {
                 
-                $(rating).css('background-image', path.replace('heart-pressed.png', 'heart.png'));
-                $(rating).text(currentRating - 1);
+                $(ratedItem).css('background-image', path.replace('heart-pressed.png', 'heart.png'));
+                $(ratedItem).text(currentRating - 1);
                 
-                this.rated = false;
+                this.ratedItemsList[ratedItemIndex] = false;
             }
             else {
                 
-                $(rating).css('background-image', path.replace('heart.png', 'heart-pressed.png'));
-                $(rating).text(currentRating + 1);
+                $(ratedItem).css('background-image', path.replace('heart.png', 'heart-pressed.png'));
+                $(ratedItem).text(currentRating + 1);
     
-                this.rated = true;
+                this.ratedItemsList[ratedItemIndex] = true;
             }
         });
     }

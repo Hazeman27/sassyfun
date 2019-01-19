@@ -123,6 +123,13 @@ class Carousel {
         });
     }
 
+    enablieAutoSlide(delay) {
+
+        setInterval(() => {
+            $(this.nextSlideButton).click();
+        }, delay);
+    }
+
     getCurrentAndTargetSlide(direction) {
 
         this.currentSlide = this.slidesTrack.querySelector('.carousel__slide_current');
